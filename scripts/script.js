@@ -1,11 +1,11 @@
 import { randomFruits } from "./fruit-script.js";
 
-const containerFruits = document.getElementById('container-fruits');
-const points = document.getElementById('points');
-const resetGame = document.getElementById('reset-game');
-const message = document.getElementById('message');
+const containerFruits = document.getElementById("container-fruits");
+const points = document.getElementById("points");
+const resetGame = document.getElementById("reset-game");
+const message = document.getElementById("message");
 
-const ICON_SALAD = '🥙';
+const ICON_SALAD = "🥙";
 const POINTS = 100;
 
 let allFruits = randomFruits();
@@ -13,16 +13,16 @@ let fruitElement;
 let counterPoints = 0;
 
 const drawFruits = () => {
-    for (let index = 0; index < allFruits.length; index++) {
-        createElementFruit();
-        containerFruits.appendChild(fruitElement);        
-    }
-}
+  for (let index = 0; index < allFruits.length; index++) {
+    createElementFruit();
+    containerFruits.appendChild(fruitElement);
+  }
+};
 
 function createElementFruit() {
-    fruitElement = document.createElement('div');
-    fruitElement.classList.add('fruit');
-    fruitElement.textContent = ICON_SALAD;
+  fruitElement = document.createElement("div");
+  fruitElement.classList.add("fruit");
+  fruitElement.textContent = ICON_SALAD;
 }
 
 drawFruits();
@@ -30,78 +30,78 @@ drawFruits();
 let firstEelemnt, secondElement;
 
 function getNewFruit(element, indexElement) {
-    const newFruit = allFruits[indexElement];
+  const newFruit = allFruits[indexElement];
 
-    if (element.textContent != ICON_SALAD) {
-        return;    
-    }
+  if (element.textContent != ICON_SALAD) {
+    return;
+  }
 
-    element.textContent = newFruit;
+  element.textContent = newFruit;
 
-    if (firstEelemnt != null) {
-        secondElement = element;
-    } else {
-        firstEelemnt = element;        
-    }
+  if (firstEelemnt != null) {
+    secondElement = element;
+  } else {
+    firstEelemnt = element;
+  }
 
-    setTimeout(() => {
-        validateElements(element);
-    }, 1150);
+  setInterval(() => {
+    validateElements(element);
     validateAllGame();
+  }, 1000);
+
+  
 }
 
-function validateElements() {    
-    if (!secondElement) {
-        return;
-    }
+function validateElements() {
+  if (!secondElement) {
+    return;
+  }
 
-    if (firstEelemnt.textContent != secondElement.textContent) {
-        firstEelemnt.textContent = ICON_SALAD;
-        secondElement.textContent = ICON_SALAD;
-    } else {
-        counterPoints = counterPoints + POINTS;
-        points.textContent = counterPoints;
-    }
+  if (firstEelemnt.textContent != secondElement.textContent) {
+    firstEelemnt.textContent = ICON_SALAD;
+    secondElement.textContent = ICON_SALAD;
+  } else {
+    counterPoints = counterPoints + POINTS;
+    points.textContent = counterPoints;
+  }
 
-    firstEelemnt = null;
-    secondElement = null;
+  firstEelemnt = null;
+  secondElement = null;
 }
 
 function validateAllGame() {
-    let counterFigures = 0;
-    const lengthArray = containerFruits.childNodes.length;
+  let counterFigures = 0;
+  const lengthArray = containerFruits.childNodes.length;
 
-    for (let index = 0; index < lengthArray; index++) {
-        const element = containerFruits.childNodes[index];
-        if (element.textContent != ICON_SALAD) {
-            counterFigures ++;    
-        }
+  for (let index = 0; index < lengthArray; index++) {
+    const element = containerFruits.childNodes[index];
+    if (element.textContent != ICON_SALAD) {
+      counterFigures++;
     }
+  }
 
-    if (lengthArray == counterFigures) {
-        message.classList.remove('hidden-message');       
-    }
-    
+  if (lengthArray == counterFigures) {
+    message.classList.remove("hidden-message");
+  }
 }
 
 function clearGame() {
-    counterPoints = 0;
-    points.textContent = counterPoints;
-    allFruits = randomFruits();
-    containerFruits.querySelectorAll('.fruit').forEach((item, index) => {
-        item.textContent = ICON_SALAD;
-    });
+  counterPoints = 0;
+  points.textContent = counterPoints;
+  allFruits = randomFruits();
+  containerFruits.querySelectorAll(".fruit").forEach((item, index) => {
+    item.textContent = ICON_SALAD;
+  });
 
-    if (!message.classList.contains('hidden-message')) {
-        message.classList.add('hidden-message')
-    }
-    
+  if (!message.classList.contains("hidden-message")) {
+    message.classList.add("hidden-message");
+  }
 }
 
-containerFruits.querySelectorAll('.fruit').forEach((item, index) => {
-    item.addEventListener('click', event => {
-        getNewFruit(item, index);
-    });
+containerFruits.querySelectorAll(".fruit").forEach((item, index) => {
+  item.addEventListener("click", (event) => {
+    getNewFruit(item, index);
+  });
 });
 
-resetGame.addEventListener('click', clearGame);
+resetGame.addEventListener("click", clearGame);
