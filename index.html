@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="container mt-5">
+    <div class="title-fruits">Select your options</div>
+
+    <div class="container-fruits" id="container-fruits"></div>
+
+    <div class="container-score">
+        <div class="score">Score:</div>
+        <div class="points" id="points">0</div>
+    </div>
+    
+    <button class="reset-game" id="reset-game">
+        Play agian
+    </button>
+
+    <div class="congratulations-message hidden-message" id="message">
+        <div class="congratulations">CONGRATULATIOS!!!</div>
+        <div class="message">You are  the winnner...</div>         
+    </div>
+
+    <script src="./scripts/script.js" type="module"></script>
+  </body>
+</html>

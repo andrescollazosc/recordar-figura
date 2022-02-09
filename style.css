@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+:root {
+  --blue-dark-color: rgb(25, 25, 63);
+  --dark-gray-color: #39424e;
+  --light-gray-color: #f3f7f7;
+  --green-color: #1ba94c;
+}
+
+body {
+  background: var(--light-gray-color);
+}
+
+.title-fruits {
+  font-family: Poppins, sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #0e141e;
+}
+
+.container-fruits {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 25px;
+  padding: 10px;
+}
+
+.fruit {
+  font-size: 40px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s;
+  background: white;
+  box-shadow: 0 4px 12px 0 rgb(0 0 0 / 15%);
+  border-radius: 5px;
+}
+
+.fruit:hover {
+  filter: brightness(95%);
+}
+
+.container-score {
+  display: flex;
+  font-family: Poppins, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 10px;
+}
+
+.points {
+  padding-left: 10px;
+}
+
+.reset-game {
+  background: var(--green-color);
+  border: 0;
+  padding: 15px 20px;
+  border-radius: 6px;
+  color: #fff;
+  font-family: Poppins, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.reset-game:hover {
+  background: #fff;
+  color: var(--green-color);
+  border: 1px var(--green-color) solid;
+}
+
+.congratulations-message {
+  padding: 30px;
+  font-family: Poppins, sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  text-align: center;
+  color: dodgerblue;
+}
+
+.hidden-message {
+    display: none;
+}
+
+@media (max-width: 922px) {
+  .container-fruits {
+    grid-template-columns: auto auto auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-fruits {
+    grid-template-columns: auto auto;
+  }
+}
