@@ -17,7 +17,6 @@ const drawFruits = () => {
         createElementFruit();
         containerFruits.appendChild(fruitElement);        
     }
-    console.log(allFruits);
 }
 
 function createElementFruit() {
@@ -47,7 +46,7 @@ function getNewFruit(element, indexElement) {
 
     setTimeout(() => {
         validateElements(element);
-    }, 1200);
+    }, 1150);
     validateAllGame();
 }
 
