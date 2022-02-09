@@ -95,4 +95,8 @@ body {
   .container-fruits {
     grid-template-columns: auto auto;
   }
+
+  .congratulations-message {
+    font-size: 20px;
+  }
 }
